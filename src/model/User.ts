@@ -10,3 +10,8 @@ export interface UserInputDTO {
     email: string,
     password: string
 }
+
+export interface UserLoginInputDTO {
+    email: string,
+    password: string
+}
