@@ -18,3 +18,23 @@ Content-Type: application/json
     "email": "howard@email.com",
     "password": "howard1234"
 }
+
+# ================================================ Making Logins ================================================ #
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "lance@email.com",
+    "password": "lance1234"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "howard@email.com",
+    "password": "howard1234"
+}
