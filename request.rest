@@ -1,0 +1,20 @@
+# ================================================ Register Users ================================================ #
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Lance Vance",
+    "email": "lance@email.com",
+    "password": "lance1234"
+}
+
+###
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Howard Hamlin",
+    "email": "howard@email.com",
+    "password": "howard1234"
+}
