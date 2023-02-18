@@ -44,7 +44,7 @@ Content-Type: application/json
 ###
 GET  http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjczOWEyLTY2NzQtNDBiNC05MTFjLTdiMTYyMmE3YmVhMCIsImlhdCI6MTY3NjY4NDYzOCwiZXhwIjoxNjc2Njg4MjM4fQ.taiU3JO886ciutm9W2R--s2YagmyQvrB89JoRXHYJM8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjczOWEyLTY2NzQtNDBiNC05MTFjLTdiMTYyMmE3YmVhMCIsImlhdCI6MTY3NjczNzgyOSwiZXhwIjoxNjc2NzQxNDI5fQ.YR_Nqc6UaKr459N0kzAtgxBKe8vzmywQeU3terwvDOg
 
 # ================================================ Get Other User ================================================ #
 
@@ -52,3 +52,28 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjczOWEyLTY2NzQt
 GET  http://localhost:3003/user/bcf739a2-6674-40b4-911c-7b1622a7bea0
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFhOWI1MTBlLTNmNGQtNGJjNy1iYjMxLTE2NDM5NDdiZGRjNSIsImlhdCI6MTY3NjY4NDU2NCwiZXhwIjoxNjc2Njg4MTY0fQ.TlMvf6jk50bIg5NSaTeZgSeShyzR40W-9Hov1LVNPfY
+
+# ================================================ Create Recipes ================================================ #
+
+###
+POST http://localhost:3003/recipe/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjczOWEyLTY2NzQtNDBiNC05MTFjLTdiMTYyMmE3YmVhMCIsImlhdCI6MTY3NjczNzgyOSwiZXhwIjoxNjc2NzQxNDI5fQ.YR_Nqc6UaKr459N0kzAtgxBKe8vzmywQeU3terwvDOg
+
+{
+    "title": "Massa de pizza rápida e fácil",
+    "description": "Em um liquidificador, coloque ovo, leite, manteiga, sal, açúcar, farinha e bata até ficar homogêneo."
+}
+
+###
+POST http://localhost:3003/recipe/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjczOWEyLTY2NzQtNDBiNC05MTFjLTdiMTYyMmE3YmVhMCIsImlhdCI6MTY3NjczNzgyOSwiZXhwIjoxNjc2NzQxNDI5fQ.YR_Nqc6UaKr459N0kzAtgxBKe8vzmywQeU3terwvDOg
+
+{
+    "title": "Pão de alho",
+    "description": "Pão e alho"
+}
+
+# ================================================ Get Recipe ================================================ 
+
