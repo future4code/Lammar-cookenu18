@@ -58,4 +58,18 @@ export class UserController {
         }
     }
 
+    public getOtherUser  = async ( req: Request, res: Response ): Promise<void> => {
+        try {
+            const userToken = req.headers.authorization as string
+            const otherUserId: string = req.params.id
+
+            const userBusiness = new UserBusiness()
+            const user = await userBusiness.getOtherUser(userToken, otherUserId)
+
+            res.status(200).send(user)
+
+        } catch (err: any) {
+            res.status(err.statusCode || 400).send(err.message || err.sqlMessage)
+        }
+    }
 }

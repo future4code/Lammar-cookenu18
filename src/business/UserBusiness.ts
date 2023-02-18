@@ -19,7 +19,9 @@ import {
     UserNotFound,
     NotBodyLogin,
     InvalidPasswordLogin,
-    NotUserToken
+    NotUserToken,
+    NotId,
+    UserNotFoundById
 } from "../error/UserErrors";
 
 export class UserBusiness {
@@ -99,7 +101,7 @@ export class UserBusiness {
         }
     }
 
-    login = async ( input: UserLoginInputDTO ) => {
+    public login = async ( input: UserLoginInputDTO ) => {
         try {
             
             const { email, password } = input
@@ -140,7 +142,7 @@ export class UserBusiness {
         }
     }
 
-    profile = async ( userToken: string ) => {
+    public profile = async ( userToken: string ) => {
         try {
 
             if ( !userToken ) {
@@ -152,6 +154,40 @@ export class UserBusiness {
 
             const userDatabase = new UserDatabase()
             const userOutput = await userDatabase.getUserById(payload)
+
+            const user: UserOutput = {
+                id: userOutput.id, 
+                name: userOutput.name, 
+                email: userOutput.email
+            }
+
+            return user 
+
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
+
+    public getOtherUser = async ( userToken: string, otherUserId: string ) => {
+        try {
+
+            if ( !userToken ) {
+               throw new NotUserToken()
+            }
+
+            if (!otherUserId) {
+                throw new NotId()
+            }
+
+            const authenticator = new Authenticator()
+            authenticator.getTokenData(userToken)
+
+            const userDatabase = new UserDatabase()
+            const userOutput = await userDatabase.getUserById(otherUserId)
+
+            if (!userOutput) {
+                throw new UserNotFoundById()
+            }
 
             const user: UserOutput = {
                 id: userOutput.id, 
