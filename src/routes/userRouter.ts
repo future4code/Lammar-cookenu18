@@ -10,3 +10,5 @@ userRouter.post("/signup", userController.signup)
 userRouter.post("/login", userController.login)
 
 userRouter.get("/profile", userController.profile)
+
+userRouter.get("/:id", userController.getOtherUser)

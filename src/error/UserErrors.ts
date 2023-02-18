@@ -115,3 +115,15 @@ export class InvalidPasswordLogin extends CustomError {
         super(422, "Senha incorreta!")
     }
 }
+
+export class NotId extends CustomError {
+    constructor(){
+        super(422, "Por favor, insira o id do usuário que deseja retornar do banco de dados!")
+    }
+}
+
+export class UserNotFoundById extends CustomError{ 
+    constructor(){
+        super(404, "Usuário não encontrado, por favor verifique o id informado e tente novamente!")
+    }
+}

@@ -44,4 +44,11 @@ Content-Type: application/json
 ###
 GET  http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFhOWI1MTBlLTNmNGQtNGJjNy1iYjMxLTE2NDM5NDdiZGRjNSIsImlhdCI6MTY3NjY3ODM3NCwiZXhwIjoxNjc2NjgxOTc0fQ.qUBH7_D1PvBFev3_ajRJuv43h4RQFk55ubhzZZXg33Q
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjczOWEyLTY2NzQtNDBiNC05MTFjLTdiMTYyMmE3YmVhMCIsImlhdCI6MTY3NjY4NDYzOCwiZXhwIjoxNjc2Njg4MjM4fQ.taiU3JO886ciutm9W2R--s2YagmyQvrB89JoRXHYJM8
+
+# ================================================ Get Other User ================================================ #
+
+###
+GET  http://localhost:3003/user/bcf739a2-6674-40b4-911c-7b1622a7bea0
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFhOWI1MTBlLTNmNGQtNGJjNy1iYjMxLTE2NDM5NDdiZGRjNSIsImlhdCI6MTY3NjY4NDU2NCwiZXhwIjoxNjc2Njg4MTY0fQ.TlMvf6jk50bIg5NSaTeZgSeShyzR40W-9Hov1LVNPfY
