@@ -1,6 +1,6 @@
 import { BaseDatabase } from "./BaseDatabeas";
 import { CustomError } from "../error/CustomError";
-import { Recipe } from "../model/Recipe";
+import { Recipe, RecipeOutputDB} from "../model/Recipe";
 
 export class RecipeDatabase extends BaseDatabase {
 
@@ -22,7 +22,7 @@ export class RecipeDatabase extends BaseDatabase {
         }
     }
 
-    public getRecipeById = async ( id: string ): Promise<Recipe> => {
+    public getRecipeById = async ( id: string ): Promise<RecipeOutputDB> => {
         try {
 
             const result = await RecipeDatabase.connection.raw(`

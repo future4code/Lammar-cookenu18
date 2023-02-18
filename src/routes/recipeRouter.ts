@@ -6,3 +6,5 @@ export const recipeRouter = express.Router()
 const recipeController = new RecipeController()
 
 recipeRouter.post("/create", recipeController.createRecipe)
+
+recipeRouter.get("/:id", recipeController.getRecipeById)

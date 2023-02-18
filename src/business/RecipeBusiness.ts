@@ -64,4 +64,38 @@ export class RecipeBusiness {
         }
     }
 
+    public getRecipeById = async ( userToken: string, recipeId: string ) => {
+        try {
+
+            if ( !userToken ) {
+               throw new NotUserToken()
+            }
+
+            if (!recipeId) {
+                throw new NotId()
+            }
+
+            const authenticator = new Authenticator()
+            authenticator.getTokenData(userToken)
+
+            const recipeDatabase = new RecipeDatabase()
+            const recipeOutput = await recipeDatabase.getRecipeById(recipeId)
+
+            if (!recipeOutput) {
+                throw new RecipeNotFound()
+            }
+            
+            const recipe: RecipeOutput = {
+                id: recipeOutput.id,
+                title: recipeOutput.title,
+                description: recipeOutput.description,
+                createdAt: recipeOutput.created_at
+            }
+
+            return recipe
+
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
 }
