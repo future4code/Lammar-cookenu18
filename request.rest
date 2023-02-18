@@ -1,4 +1,4 @@
-# ================================================ Register Users ================================================ #
+# ================================================ Register User ================================================ #
 
 POST http://localhost:3003/user/signup
 Content-Type: application/json
@@ -19,7 +19,7 @@ Content-Type: application/json
     "password": "howard1234"
 }
 
-# ================================================ Making Logins ================================================ #
+# ================================================ Making Login ================================================ #
 
 ###
 POST http://localhost:3003/user/login
@@ -53,7 +53,7 @@ GET  http://localhost:3003/user/bcf739a2-6674-40b4-911c-7b1622a7bea0
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFhOWI1MTBlLTNmNGQtNGJjNy1iYjMxLTE2NDM5NDdiZGRjNSIsImlhdCI6MTY3NjY4NDU2NCwiZXhwIjoxNjc2Njg4MTY0fQ.TlMvf6jk50bIg5NSaTeZgSeShyzR40W-9Hov1LVNPfY
 
-# ================================================ Create Recipes ================================================ #
+# ================================================ Create Recipe ================================================ #
 
 ###
 POST http://localhost:3003/recipe/create
@@ -75,5 +75,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjczOWEyLTY2NzQt
     "description": "Pão e alho"
 }
 
-# ================================================ Get Recipe ================================================ 
+# ================================================ Get Recipe ================================================ #
 
+###
+GET  http://localhost:3003/recipe/716b8587-144a-4e0e-9a71-6390702196cd
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjczOWEyLTY2NzQtNDBiNC05MTFjLTdiMTYyMmE3YmVhMCIsImlhdCI6MTY3Njc1MzMxMiwiZXhwIjoxNjc2NzU2OTEyfQ.XT6Uaqai4xAqGarIRofZHFkmaydeCU6yALxwCyH-meM

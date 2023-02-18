@@ -14,5 +14,12 @@ export interface RecipeOutput {
     id: string,
     title: string,
     description: string,
-    createAT: Date
+    createdAt: Date
+}
+
+export interface RecipeOutputDB {
+    id: string,
+    title: string,
+    description: string,
+    created_at: Date
 }
