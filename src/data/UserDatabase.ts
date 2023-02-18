@@ -36,4 +36,19 @@ export class UserDatabase extends BaseDatabase {
             throw new CustomError(err.statusCode, err.message)
         }
     }
+
+    public getUserById = async ( id: string ): Promise<User> => {
+        try {
+
+            const result = await UserDatabase.connection.raw(`
+                SELECT * FROM cookenu_users
+                WHERE id LIKE "%${id}";
+            `)
+
+            return result[0][0]
+            
+        } catch (err: any) {
+            throw new CustomError(err.statusCode, err.message)
+        }
+    }
 }

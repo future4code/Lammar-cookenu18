@@ -38,3 +38,10 @@ Content-Type: application/json
     "email": "howard@email.com",
     "password": "howard1234"
 }
+
+# ================================================ Get Own Profile ================================================ #
+
+###
+GET  http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFhOWI1MTBlLTNmNGQtNGJjNy1iYjMxLTE2NDM5NDdiZGRjNSIsImlhdCI6MTY3NjY3ODM3NCwiZXhwIjoxNjc2NjgxOTc0fQ.qUBH7_D1PvBFev3_ajRJuv43h4RQFk55ubhzZZXg33Q

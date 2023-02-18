@@ -35,9 +35,23 @@ export class UserController {
             }
 
             const userBusiness = new UserBusiness()
-            const {token} = await userBusiness.login(input)
+            const token = await userBusiness.login(input)
 
             res.status(200).send({ message: "Login feito com sucesso!", "Token de acesso": token })
+
+        } catch (err: any) {
+            res.status(err.statusCode || 400).send(err.message || err.sqlMessage)
+        }
+    }
+
+    public profile = async ( req: Request, res: Response ): Promise<void> => {
+        try {
+            const userToken = req.headers.authorization as string
+
+            const userBusiness = new UserBusiness()
+            const user = await userBusiness.profile(userToken)
+
+            res.status(200).send({ message: "Usuário autorizado!", user })
 
         } catch (err: any) {
             res.status(err.statusCode || 400).send(err.message || err.sqlMessage)

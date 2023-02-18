@@ -1,6 +1,6 @@
 import { UserDatabase } from "../data/UserDatabase";
 import { CustomError } from "../error/CustomError";
-import { User, UserInputDTO, UserLoginInputDTO } from "../model/User";
+import { User, UserInputDTO, UserLoginInputDTO, UserOutput } from "../model/User";
 import { generateId } from "../services/idGenerator";
 import { Authenticator } from "../services/authenticator";
 import { HashManager } from "../services/hashManager";
@@ -18,7 +18,8 @@ import {
     RegisteredUser,
     UserNotFound,
     NotBodyLogin,
-    InvalidPasswordLogin
+    InvalidPasswordLogin,
+    NotUserToken
 } from "../error/UserErrors";
 
 export class UserBusiness {
@@ -132,7 +133,33 @@ export class UserBusiness {
             const authenticator = new Authenticator()
             const token =  authenticator.generateToken({id: userOutput.id})
 
-            return {token}
+            return token
+
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
+
+    profile = async ( userToken: string ) => {
+        try {
+
+            if ( !userToken ) {
+               throw new NotUserToken()
+            }
+
+            const authenticator = new Authenticator()
+            const payload =  authenticator.getTokenData(userToken).id
+
+            const userDatabase = new UserDatabase()
+            const userOutput = await userDatabase.getUserById(payload)
+
+            const user: UserOutput = {
+                id: userOutput.id, 
+                name: userOutput.name, 
+                email: userOutput.email
+            }
+
+            return user 
 
         } catch (error: any) {
             throw new CustomError(error.statusCode, error.message)
